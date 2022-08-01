@@ -67,10 +67,17 @@ body {
     margin-left: 5px;
 }
 
+.game-board {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .details {
     position: absolute;
     left: 50%;
-    top: 50px;
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 7px;
@@ -203,10 +210,6 @@ body {
     cursor: pointer;
 }
 
-.box:hover {
-    background-color: rgb(219, 190, 248);
-}
-
 .box-text {
     color: #fff;
 }
@@ -225,4 +228,17 @@ body {
 
 .bb-0 {
     border-bottom: none;
+}
+
+@media (max-width:600px) {
+    .details {
+        width: 80vw;
+    }
+    .container {
+        grid-template-columns: repeat(3, 25vw);
+        grid-template-rows: repeat(3, 25vw);
+    }
+    .box {
+        font-size: 15vw;
+    }
 }
