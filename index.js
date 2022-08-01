@@ -75,10 +75,24 @@ const containerDivElement = document.querySelectorAll(".box");
 
 containerDivElement.forEach((box) => {
 
+ box.addEventListener("mouseenter", (e) => {
+        if (e.target.querySelector(".box-text").innerText === "") {
+            e.target.style.backgroundColor = "rgb(219, 190, 248)";
+        }
 
+    })
+
+    box.addEventListener("mouseleave", (e) => {
+        if (e.target.querySelector(".box-text").innerText === "") {
+            e.target.style.backgroundColor = "transparent";
+        }
+
+    })
 
     box.addEventListener("click", (e) => {
         if (!gameover) {
+            e.target.style.backgroundColor = "transparent";
+            e.target.style.cursor = "not-allowed";
             e.target.querySelector(".box-text").innerText = turn;
             changeTurnAudio.play();
             turn = changeTurn();
